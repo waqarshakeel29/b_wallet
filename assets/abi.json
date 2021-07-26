@@ -1,0 +1,776 @@
+[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			}
+		],
+		"name": "ActivateCompany",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "cId",
+				"type": "uint256"
+			}
+		],
+		"name": "addCompany",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			},
+			{
+				"name": "trustedid",
+				"type": "uint256"
+			},
+			{
+				"name": "sharelimit",
+				"type": "uint256"
+			}
+		],
+		"name": "addTrustedContact",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "username",
+				"type": "string"
+			},
+			{
+				"name": "_phnenumber",
+				"type": "uint256"
+			},
+			{
+				"name": "pin",
+				"type": "uint256"
+			}
+		],
+		"name": "addUserinCompany",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			}
+		],
+		"name": "DeactivateCompany",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			},
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "DepositinUserAccount",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "senderph",
+				"type": "uint256"
+			},
+			{
+				"name": "receiverph",
+				"type": "uint256"
+			},
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "dopayment",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			}
+		],
+		"name": "removeCompany",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			}
+		],
+		"name": "removeCompanyUser",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			},
+			{
+				"name": "trustedid",
+				"type": "uint256"
+			}
+		],
+		"name": "removeTrustedUser",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			},
+			{
+				"name": "trustedid",
+				"type": "uint256"
+			}
+		],
+		"name": "removeTrusteeUser",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			},
+			{
+				"name": "trustedid",
+				"type": "uint256"
+			},
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "requestTrustedContact",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			},
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "setBalance",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			},
+			{
+				"name": "trustedid",
+				"type": "uint256"
+			},
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "setTrusteeContactLimit",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			},
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "WithDrawFromUserAccount",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "adminid",
+				"type": "uint256"
+			},
+			{
+				"name": "adminpin",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "cid",
+				"type": "uint256"
+			}
+		],
+		"name": "DoesCompanyExists",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getAdmin",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			}
+		],
+		"name": "getBalance",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getCompanyIds",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "cID",
+				"type": "uint256"
+			}
+		],
+		"name": "getCompanyName",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getNumberofCompanies",
+		"outputs": [
+			{
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "uid",
+				"type": "uint256"
+			}
+		],
+		"name": "getTransactions",
+		"outputs": [
+			{
+				"components": [
+					{
+						"name": "currentBalance",
+						"type": "uint256"
+					},
+					{
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"name": "reciver",
+						"type": "uint256"
+					},
+					{
+						"name": "sender",
+						"type": "uint256"
+					},
+					{
+						"name": "day",
+						"type": "uint8"
+					},
+					{
+						"name": "Month",
+						"type": "uint8"
+					},
+					{
+						"name": "Year",
+						"type": "uint16"
+					},
+					{
+						"name": "Hour",
+						"type": "uint8"
+					},
+					{
+						"name": "Minute",
+						"type": "uint8"
+					},
+					{
+						"name": "second",
+						"type": "uint8"
+					}
+				],
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			},
+			{
+				"name": "trustedid",
+				"type": "uint256"
+			}
+		],
+		"name": "getTrustedContLimit",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			}
+		],
+		"name": "getTrustedList",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			},
+			{
+				"name": "trusteeid",
+				"type": "uint256"
+			}
+		],
+		"name": "getTrusteeLimit",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			}
+		],
+		"name": "getTrusteeList",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "CID",
+				"type": "uint256"
+			}
+		],
+		"name": "getuserLists",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "CID",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			}
+		],
+		"name": "getUserName",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			}
+		],
+		"name": "IsCompanyActive",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "compid",
+				"type": "uint256"
+			},
+			{
+				"name": "uid",
+				"type": "uint256"
+			},
+			{
+				"name": "pin",
+				"type": "uint256"
+			}
+		],
+		"name": "isPinCorrect",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "cID",
+				"type": "uint256"
+			},
+			{
+				"name": "userid",
+				"type": "uint256"
+			}
+		],
+		"name": "isUserPresent",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "phonenum",
+				"type": "uint256"
+			},
+			{
+				"name": "pin",
+				"type": "uint256"
+			}
+		],
+		"name": "loginAdmin",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

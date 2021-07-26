@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "143896371743",
+    "project_id": "bwallet-82ce9",
+    "storage_bucket": "bwallet-82ce9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143896371743:android:972070be0a4888ab5feb2a",
+        "android_client_info": {
+          "package_name": "com.example.b_wallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143896371743-6oj4fh2pavim112oaqqe6459pcqf1u7s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.b_wallet",
+            "certificate_hash": "76297e8501c943f5eb56d4d3d752af0f27a8caef"
+          }
+        },
+        {
+          "client_id": "143896371743-9bf93jplq6pickafuhrk53bf70rj18or.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFQgmIU5AFYpl_oADAy0pIpdqodMDIeiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143896371743-9bf93jplq6pickafuhrk53bf70rj18or.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
