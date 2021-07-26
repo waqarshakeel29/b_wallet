@@ -156,7 +156,6 @@ class NetworkProvider {
     return result;
   }
 
-
   Future<List<dynamic>> getTrusteeList(String userId) async {
     var comp_id = BigInt.parse(COMPANY_ID);
     var u_id = BigInt.parse(userId);
@@ -164,7 +163,6 @@ class NetworkProvider {
 
     return result;
   }
-
 
   Future<List<dynamic>> getTrustedContLimit(
       String userId, String benificaryId) async {
@@ -177,6 +175,24 @@ class NetworkProvider {
     print(b_id);
     List<dynamic> result =
         await query("getTrustedContLimit", [comp_id, u_id, b_id]);
+
+    print("RESPONSE");
+
+    print(result);
+    return result;
+  }
+
+  Future<List<dynamic>> getTrusteeLimit(
+      String userId, String benificaryId) async {
+    var comp_id = BigInt.parse(COMPANY_ID);
+    var u_id = BigInt.parse(userId);
+    var b_id = BigInt.parse(benificaryId);
+
+    print("IN trusted conl lit");
+    print(u_id);
+    print(b_id);
+    List<dynamic> result =
+        await query("getTrusteeLimit", [comp_id, u_id, b_id]);
 
     print("RESPONSE");
 
@@ -242,6 +258,58 @@ class NetworkProvider {
     var b_id = BigInt.parse(benificaryId);
 
     var response = await submit("removeTrustedUser", [comp_id, u_id, b_id]);
+
+    var isTransactionConfirm = false;
+    while (!isTransactionConfirm) {
+      var res = await ethClient.getTransactionReceipt(response);
+      if (res != null) {
+        print(res);
+        isTransactionConfirm = res.status;
+      } else {
+        print("waiting");
+      }
+    }
+    //var response = await submit("sendTo", [senderId, receiverId, amount]);
+    // hash of the transaction
+    print("RESPONSE ------- " + response);
+    return isTransactionConfirm;
+  }
+
+  Future<bool> setTrusteeLimit(
+      String userId, String benificaryId, String limitt) async {
+    var comp_id = BigInt.parse(COMPANY_ID);
+    var u_id = BigInt.parse(userId);
+    var b_id = BigInt.parse(benificaryId);
+    var limit = BigInt.parse(limitt);
+
+    var response =
+        await submit("setTrusteeContactLimit", [comp_id, u_id, b_id, limit]);
+
+    var isTransactionConfirm = false;
+    while (!isTransactionConfirm) {
+      var res = await ethClient.getTransactionReceipt(response);
+      if (res != null) {
+        print(res);
+        isTransactionConfirm = res.status;
+      } else {
+        print("waiting");
+      }
+    }
+    //var response = await submit("sendTo", [senderId, receiverId, amount]);
+    // hash of the transaction
+    print("RESPONSE ------- " + response);
+    return isTransactionConfirm;
+  }
+
+  Future<bool> requestTrustedContact(
+      String userId, String benificaryId, String amount) async {
+    var comp_id = BigInt.parse(COMPANY_ID);
+    var u_id = BigInt.parse(userId);
+    var b_id = BigInt.parse(benificaryId);
+    var am = BigInt.parse(amount);
+
+    var response =
+        await submit("requestTrustedContact", [comp_id, u_id, b_id, am]);
 
     var isTransactionConfirm = false;
     while (!isTransactionConfirm) {

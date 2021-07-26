@@ -16,11 +16,11 @@ import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-class TrustedContactScreen extends StatefulWidget {
+class BorrowScreen extends StatefulWidget {
   final BuildContext menuScreenContext;
   final Function onScreenHideButtonPressed;
   final bool hideStatus;
-  TrustedContactScreen(
+  BorrowScreen(
       {Key key,
       this.menuScreenContext,
       this.onScreenHideButtonPressed,
@@ -29,11 +29,11 @@ class TrustedContactScreen extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return TrustedContactScreenState();
+    return BorrowScreenState();
   }
 }
 
-class TrustedContactScreenState extends State<TrustedContactScreen> {
+class BorrowScreenState extends State<BorrowScreen> {
   List trustedList = [];
 
   final walletProvider = GetIt.I<WalletProvider>();
@@ -119,7 +119,7 @@ class TrustedContactScreenState extends State<TrustedContactScreen> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        "Trusted List",
+                        "Borrow Here",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 25,
@@ -236,7 +236,7 @@ class TrustedContactScreenState extends State<TrustedContactScreen> {
                                           // codeSent
                                           // ?
                                           Text(
-                                        "Add \nContact",
+                                        "Availiablity all Time",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
@@ -247,184 +247,7 @@ class TrustedContactScreenState extends State<TrustedContactScreen> {
                                     borderRadius: BorderRadius.circular(10.0),
                                     side: BorderSide(color: AppColor.primary),
                                   ),
-                                  onPressed: () async {
-                                    final result = await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                QRViewScreen()));
-                                    print("result captured is " +
-                                        result.toString());
-
-                                    String decoded = stringToBase64
-                                        .decode(result.toString());
-
-                                    print("result Decoded is " + decoded);
-                                    print("result name is :" +
-                                        decoded.split("=")[0] +
-                                        ":");
-                                    print("result number is :" +
-                                        decoded.split("=")[1] +
-                                        ":");
-
-                                    if (decoded.contains("=")) {
-                                      if (decoded.split("=").length == 2) {
-                                        var recName = decoded.split("=")[0];
-                                        var recNumber = decoded.split("=")[1];
-                                        if (!recNumber.contains(loginProvider
-                                            .appUser.value.phoneNo
-                                            .split("+92")[1])) {
-                                          var isExist = false;
-                                          for (var i in trustedList) {
-                                            isExist =
-                                                '${i}'.contains(recNumber);
-                                            if (isExist) {
-                                              break;
-                                            }
-                                          }
-                                          if (!isExist) {
-                                            showAlertDialog(context);
-                                            var res = await walletProvider
-                                                .addtrustedContract(
-                                                    loginProvider
-                                                        .appUser.value.phoneNo
-                                                        .split("+92")[1],
-                                                    recNumber);
-
-                                            Navigator.pop(context);
-                                            setState(() {});
-                                            if (res) {
-                                              Fluttertoast.showToast(
-                                                  msg: "Contact Added",
-                                                  backgroundColor: Colors.black
-                                                      .withOpacity(0.6),
-                                                  textColor: Colors.white,
-                                                  toastLength:
-                                                      Toast.LENGTH_LONG);
-                                            } else {
-                                              Fluttertoast.showToast(
-                                                  msg:
-                                                      "Unable to add Contact in List",
-                                                  backgroundColor: Colors.black
-                                                      .withOpacity(0.6),
-                                                  textColor: Colors.white,
-                                                  toastLength:
-                                                      Toast.LENGTH_LONG);
-                                            }
-                                          } else {
-                                            Fluttertoast.showToast(
-                                                msg: "Contact Already Exists",
-                                                backgroundColor: Colors.black
-                                                    .withOpacity(0.6),
-                                                textColor: Colors.white,
-                                                toastLength: Toast.LENGTH_LONG);
-                                          }
-                                        } else {
-                                          Fluttertoast.showToast(
-                                              msg: "Cannot Add own ID",
-                                              backgroundColor:
-                                                  Colors.black.withOpacity(0.6),
-                                              textColor: Colors.white,
-                                              toastLength: Toast.LENGTH_LONG);
-                                        }
-                                      } else {
-                                        Fluttertoast.showToast(
-                                            msg: "Wrong QR",
-                                            backgroundColor:
-                                                Colors.black.withOpacity(0.6),
-                                            textColor: Colors.white,
-                                            toastLength: Toast.LENGTH_LONG);
-                                      }
-                                    } else {
-                                      Fluttertoast.showToast(
-                                          msg: "Wrong QR",
-                                          backgroundColor:
-                                              Colors.black.withOpacity(0.6),
-                                          textColor: Colors.white,
-                                          toastLength: Toast.LENGTH_LONG);
-                                    }
-                                  },
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: MaterialButton(
-                                  color: AppColor.primary,
-                                  child: Padding(
-                                      padding: const EdgeInsets.all(17.0),
-                                      child:
-                                          // codeSent
-                                          // ?
-                                          Text(
-                                        "Remove \nContact",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                            fontSize: 15),
-                                      )),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    side: BorderSide(color: AppColor.primary),
-                                  ),
-                                  onPressed: () async {
-                                    if (selectionList.length != 0) {
-                                      print("Not Null");
-                                      if (selectionList.contains(true)) {
-                                        print("Containes");
-                                        for (int i = 0;
-                                            i < selectionList.length;
-                                            i++) {
-                                          print(selectionList[i]);
-                                          if (selectionList[i]) {
-                                            showAlertDialog(context);
-                                            setState(() {});
-                                            try {
-                                              var b = await walletProvider
-                                                  .removeTrustedContract(
-                                                      loginProvider
-                                                          .appUser.value.phoneNo
-                                                          .split("+92")[1],
-                                                      '${trustedList[i]}');
-
-                                              if (b) {
-                                                Fluttertoast.showToast(
-                                                    msg: "Contact Removed",
-                                                    backgroundColor: Colors
-                                                        .black
-                                                        .withOpacity(0.6),
-                                                    textColor: Colors.white,
-                                                    toastLength:
-                                                        Toast.LENGTH_LONG);
-                                              } else {
-                                                Fluttertoast.showToast(
-                                                    msg: "Removal Failed",
-                                                    backgroundColor: Colors
-                                                        .black
-                                                        .withOpacity(0.6),
-                                                    textColor: Colors.white,
-                                                    toastLength:
-                                                        Toast.LENGTH_LONG);
-                                              }
-                                            } catch (e) {
-                                              print(e);
-                                            }
-                                            Navigator.pop(context);
-                                            setState(() {});
-                                            selectionList.clear();
-                                          }
-                                        }
-                                      } else {
-                                        Fluttertoast.showToast(
-                                            msg: "No Contact Selected",
-                                            backgroundColor:
-                                                Colors.black.withOpacity(0.6),
-                                            textColor: Colors.white,
-                                            toastLength: Toast.LENGTH_LONG);
-                                      }
-                                    } else {}
-                                  },
+                                  onPressed: () {},
                                 ),
                               ),
                             ),
@@ -445,7 +268,7 @@ class TrustedContactScreenState extends State<TrustedContactScreen> {
                   )),
                   Expanded(
                     child: FutureBuilder(
-                        future: getTrusteeList(),
+                        future: getTrustedList(),
                         builder: (context, AsyncSnapshot snapshot) {
                           if (!snapshot.hasData) {
                             return Center(child: CircularProgressIndicator());
@@ -491,11 +314,11 @@ class TrustedContactScreenState extends State<TrustedContactScreen> {
 
   List<bool> selectionList = [];
   // List<String> numberList = [];
-  getTrusteeList() async {
+  getTrustedList() async {
     var res = await walletProvider
-        .getTrusteeList(loginProvider.appUser.value.phoneNo.split("+92")[1]);
+        .getTrustedList(loginProvider.appUser.value.phoneNo.split("+92")[1]);
     trustedList = res[0];
-    print("Trusteeee");
+    print("Trusteeeed");
     print(trustedList);
     // numberList = [];
     for (int i = 0; i < trustedList.length; i++) {
@@ -505,12 +328,12 @@ class TrustedContactScreenState extends State<TrustedContactScreen> {
     return trustedList;
   }
 
-  getTrusteeLimit(String number) async {
+  getTrustedLimit(String number) async {
     var res = await walletProvider.getTrusteeLimit(
-        loginProvider.appUser.value.phoneNo.split("+92")[1], number);
+        number, loginProvider.appUser.value.phoneNo.split("+92")[1]);
     trustedList = res[0];
-    print("Trusteeee");
-    print(trustedList);
+    print("Trusteeeed");
+    print(number);
     // numberList = [];
     for (int i = 0; i < trustedList.length; i++) {
       selectionList.add(false);
@@ -545,7 +368,7 @@ class TrustedContactScreenState extends State<TrustedContactScreen> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    title: Center(child: Text("SET LIMIT")),
+                    title: Center(child: Text("BORROW")),
                     content: TextField(
                       controller: pinController,
                       style: TextStyle(fontSize: 15),
@@ -554,7 +377,7 @@ class TrustedContactScreenState extends State<TrustedContactScreen> {
                       decoration: InputDecoration(
                         hintStyle:
                             TextStyle(color: Colors.black.withOpacity(0.5)),
-                        labelText: "LIMIT",
+                        labelText: "Amount",
                         // border: InputBorder.none,
                         // enabledBorder: InputBorder.none,
                         // errorBorder: InputBorder.none,
@@ -568,7 +391,8 @@ class TrustedContactScreenState extends State<TrustedContactScreen> {
                             // Navigator.pop(context);
                             print("");
                             showAlertDialog(context);
-                            await walletProvider.setTrusteeLimit(
+
+                            await walletProvider.requestTrustedContact(
                                 loginProvider.appUser.value.phoneNo
                                     .split("+92")[1],
                                 id,
@@ -678,15 +502,15 @@ class TrustedContactScreenState extends State<TrustedContactScreen> {
                                     "Allowed:",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                        color: Colors.red.withOpacity(0.7),
+                                        color: Colors.green.withOpacity(0.7),
                                         fontSize: 17,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   FutureBuilder(
                                     future: walletProvider.getTrusteeLimit(
+                                        id,
                                         loginProvider.appUser.value.phoneNo
-                                            .split("+92")[1],
-                                        id),
+                                            .split("+92")[1]),
                                     builder: (context, AsyncSnapshot snapshot) {
                                       if (!snapshot.hasData) {
                                         print("DAta1");
@@ -695,7 +519,7 @@ class TrustedContactScreenState extends State<TrustedContactScreen> {
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               color:
-                                                  Colors.red.withOpacity(0.7),
+                                                  Colors.green.withOpacity(0.7),
                                               fontSize: 19,
                                               fontWeight: FontWeight.bold),
                                         );
@@ -707,7 +531,7 @@ class TrustedContactScreenState extends State<TrustedContactScreen> {
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               color:
-                                                  Colors.red.withOpacity(0.7),
+                                                  Colors.green.withOpacity(0.7),
                                               fontSize: 19,
                                               fontWeight: FontWeight.bold),
                                         );

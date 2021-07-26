@@ -48,12 +48,26 @@ class WalletProvider {
     return await networkProvider.addTrustedContact(userId, benificaryId);
   }
 
+  setTrusteeLimit(String userId, String benificaryId, String limit) async {
+    return await networkProvider.setTrusteeLimit(userId, benificaryId, limit);
+  }
+
+  requestTrustedContact(
+      String userId, String benificaryId, String amount) async {
+    return await networkProvider.requestTrustedContact(
+        userId, benificaryId, amount);
+  }
+
   removeTrustedContract(String userId, String benificaryId) async {
     return await networkProvider.removeTrustedContact(userId, benificaryId);
   }
 
   gettrustedContLimit(String userId, String benificaryId) async {
     return await networkProvider.getTrustedContLimit(userId, benificaryId);
+  }
+
+  getTrusteeLimit(String userId, String benificaryId) async {
+    return await networkProvider.getTrusteeLimit(userId, benificaryId);
   }
 
   getUserName(String userId) async {

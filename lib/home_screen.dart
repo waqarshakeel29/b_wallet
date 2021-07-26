@@ -15,6 +15,7 @@ import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+import 'borrow_screen.dart';
 import 'main.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -181,6 +182,35 @@ class HomeScreenState extends State<HomeScreen> {
                       ),
                       Text(
                         'History',
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BorrowScreen()));
+                },
+                child: ListTile(
+                  title: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.person_outline,
+                          color: Colors.white,
+                          size: 35,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'Borrow',
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                     ],
