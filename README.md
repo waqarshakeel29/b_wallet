@@ -8,3 +8,4 @@ We can use mobile number to sign up and use the application further.
 
 To run this project, you can download the flutter by following documentation from here: https://flutter.dev/docs/get-started/install
 
+Clone this project using git and run as mentioned in document.
